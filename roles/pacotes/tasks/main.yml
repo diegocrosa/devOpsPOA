@@ -1,0 +1,17 @@
+---
+# tasks file for pacotes
+
+- include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Install packages for Debian
+  apt:
+    name: "{{ pacotes_debian }}"
+    state: present
+    update_cache: yes
+  when: ansible_os_family == "Debian"
+
+- name: Install packages for RedHat/Centos
+  yum:
+    name: "{{ pacotes_redhat }}"
+    state: present
+  when: ansible_os_family == "RedHat"
