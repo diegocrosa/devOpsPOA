@@ -1,0 +1,4 @@
+---
+- service:
+  name: puppet
+  state: started
